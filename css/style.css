@@ -1,0 +1,10 @@
+.array-elem-cell {
+	padding: 2px 4px 0 4px;
+	margin: 2px;
+	background: #F4F4F4;
+	min-width: 14px;
+	height: 20px;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #CECECE;
+}

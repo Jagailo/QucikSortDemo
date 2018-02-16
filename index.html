@@ -7,16 +7,20 @@
 	<link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-	<label for="array-input">Enter the numbers (separated by a space):</label>
+	<label for="array-input">Enter the numbers:</label>
 	<input type="text" name="array-input" id="arrayInput">
 	<input type="button" onclick="fillArray()" value="Fill the array">
 	<input type="button" onclick="randomFill()" value="Random fill">
-
+	
+	<input type="button" onclick="sortArray()" value="Sort">
+	
 	<div>Source array:</div>
 	<div id="sourceArray"></div>
 	<div>Current array:</div>
 	<div id="currentArray"></div>
 
+	<script src="./js/logic.js"></script>
+	<script src="./js/quickSort.js"></script>
 	<script src="./js/main.js"></script>
 </body>
 </html>
