@@ -1,10 +1,59 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #FAFAFA;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	background: #FFFFFF;
+	border: 1px solid #DBDBDB;
+	padding: 20px 50px;
+}
+
+.content > div {
+	margin: 15px 0;
+}
+
+input {
+	outline: none;	
+	border: 1px solid #DBDBDB;
+	border-radius: 0;
+}
+
+input[type="text"] {
+	width: 300px;
+	height: 25px;
+	padding: 0 2px;
+}
+
+input[type="button"] {
+	background: #FAFAFA;
+	height: 27px;
+	width: 120px;
+    margin: 2px;
+}
+
+input[type="button"]:hover {
+	background: #F4F4F4;
+}
+
+#arrayInput {
+	margin: 0 15px 0 2px;
+}
+
 .array-elem-cell {
 	padding: 2px 4px 0 4px;
 	margin: 2px;
-	background: #F4F4F4;
+	background: #FAFAFA;
 	min-width: 14px;
 	height: 20px;
 	display: inline-block;
 	text-align: center;
-	border: 1px solid #CECECE;
+	border: 1px solid #DBDBDB;
 }

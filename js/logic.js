@@ -10,10 +10,10 @@ function getConverArray(array) {
 	return array;
 }
 
-function printArray(array, HTMLIDTag) {
+function printArray(array, TagID) {
 	var str = '';
 	for (var i = 0; i < array.length; i++) {
 		str += '<span class="array-elem-cell">' + array[i] + '</span>';
 	}
-	document.getElementById(HTMLIDTag).innerHTML = str;
+	document.getElementById(TagID).innerHTML = str;
 }
