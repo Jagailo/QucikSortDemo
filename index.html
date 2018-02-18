@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>AlgoJS - Quick sort demo by Alexey Yagelo</title>
-	
-	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
-	<link href="./css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>AlgoJS - Quick sort demo by Alexey Yagelo</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-	<div class="content">
-		<div>
-			<label for="array-input">Enter the numbers:</label>
-			<input type="text" name="array-input" id="arrayInput">
-			<input type="button" onclick="fillArray()" value="Fill the array">
-			<input type="button" onclick="randomFill()" value="Random fill">
-		</div>
-		
-		<div>
-			<span>Source array:</span>
-			<div id="sourceArray"></div>
-			<span>Current array:</span>
-			<div id="currentArray"></div>
-		</div>
+    <div class="content">
+        <div>
+            <label for="array-input">Enter the numbers:</label>
+            <input type="text" name="array-input" id="arrayInput">
+            <input type="button" onclick="fillArray()" value="Fill the array">
+            <input type="button" onclick="randomFill()" value="Random fill">
+        </div>
+        <div>
+            <span>Source array:</span>
+            <div id="sourceArray"></div>
+            <span>Current array:</span>
+            <div id="currentArray"></div>
+        </div>
+        <div>
+            <input type="button" onclick="sortArray()" value="Sort">
+        </div>
+    </div>
 
-		<div>
-			<input type="button" onclick="sortArray()" value="Sort">
-		</div>
-	</div>
-	
-	<script src="./js/logic.js"></script>
-	<script src="./js/quickSort.js"></script>
-	<script src="./js/main.js"></script>
+    <script src="./js/logic.js"></script>
+    <script src="./js/quickSort.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
