@@ -37,6 +37,9 @@ function drawArray(array, canvasId, realWidth) {
         for (var i = 0, x = spacingWidth; i < array.length; i++, x += columnWidth + spacingWidth * 2) {
             var columnHeightPercents = array[i] * 100 / max;
             var columnHeightPixels = Math.round(columnHeightPercents * height / 100);
+            if (columnHeightPixels < 1) {
+                columnHeightPixels = 1;
+            }
 
             //drawDefaultColumn(ctx, x, height - columnHeightPixels, columnWidth, columnHeightPixels);
             drawSingleColoredColumn(ctx, x, height - columnHeightPixels, columnWidth, columnHeightPixels, '#262626');
