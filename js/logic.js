@@ -17,3 +17,19 @@ function printArray(array, TagID) {
     }
     document.getElementById(TagID).innerHTML = str;
 }
+
+function getWidthWithoutCanvas() {
+    var canvas = document.getElementById('canvas');
+    var sourceArray = document.getElementById('sourceArray');
+    var currentArray = document.getElementById('currentArray');
+
+    canvas.style.display = 'none';
+    sourceArray.style.display = 'none';
+    currentArray.style.display = 'none';
+    var width = document.getElementById('content').offsetWidth;
+    canvas.style.display = 'block';
+    sourceArray.style.display = 'block';
+    currentArray.style.display = 'block';
+
+    return width;
+}

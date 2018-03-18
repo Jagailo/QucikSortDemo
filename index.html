@@ -7,25 +7,26 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="content">
+    <div id="content">
         <div>
             <label for="array-input">Enter the numbers:</label>
             <input type="text" name="array-input" id="arrayInput">
             <input type="button" onclick="fillArray()" value="Fill the array">
             <input type="button" onclick="randomFill()" value="Random fill">
         </div>
-        <div>
+        <div id="array-data">
             <span>Source array:</span>
             <div id="sourceArray"></div>
-            <span>Current array:</span>
+            <span>Sorted array:</span>
             <div id="currentArray"></div>
-        </div>
-        <div>
-            <input type="button" onclick="sortArray()" value="Sort">
+            <div class="canvas-block">
+                <canvas id="canvas"></canvas>
+            </div>
         </div>
     </div>
 
     <script src="./js/logic.js"></script>
+    <script src="./js/drawing.js"></script>
     <script src="./js/quickSort.js"></script>
     <script src="./js/main.js"></script>
 </body>
