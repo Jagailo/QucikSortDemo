@@ -61,7 +61,7 @@ input[type="button"]:hover {
 
 .canvas-block {
     margin: 15px 0 0 2px;
-    padding: 5px 5px 1px 5px;
+    padding: 5px;
     border: 1px solid #dbdbdb;
     display: block;
 }
@@ -73,4 +73,8 @@ input[type="button"]:hover {
 
 #array-data {
     display: none;
+}
+
+#sourceArray {
+    margin-bottom: 10px;
 }

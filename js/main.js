@@ -10,7 +10,7 @@ function fillArray() {
         var array = getConverArray(inputArray);
         printArray(array, 'sourceArray');
         drawArray(JSON.parse(JSON.stringify(array)), 'canvas', getWidthWithoutCanvas());
-        printArray(quickSort(array), 'currentArray');
+        setTimeout(printArray, 1000, quickSort(array), 'currentArray');
         setTimeout(drawArray, 1000, JSON.parse(JSON.stringify(array)), 'canvas', getWidthWithoutCanvas());
     }
 }
