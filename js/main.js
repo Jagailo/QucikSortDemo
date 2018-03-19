@@ -7,8 +7,12 @@ function fillArray() {
 
     if (inputArray != null) {
         document.getElementById('array-data').style.display = 'block';
+        turnOffTimer();
+        clearHistory();
+        
         var array = getConverArray(inputArray);
-        printArray(array, 'sourceArray');
+        printArray(array, 'sourceArray');        
+        
         printArray(quickSort(array), 'currentArray');
 
         setTimer(startAnimation(50));
@@ -25,4 +29,13 @@ function randomFill() {
 
     document.getElementById('arrayInput').value = string;
     fillArray();
+}
+
+function play() {
+    turnOffTimer();
+    setTimer(startAnimation(50));
+}
+
+function pause() {
+    turnOffTimer();
 }
