@@ -8,7 +8,7 @@ function fillArray() {
 
     if (inputArray != null) {
         document.getElementById('array-data').style.display = 'block';
-        turnOffTimer();
+        turnOffTimer(true);
         var array = getConverArray(inputArray);
         arrayCount = array.length;
         clearHistory();
@@ -32,12 +32,12 @@ function randomFill() {
 }
 
 function play() {
-    turnOffTimer();
+    turnOffTimer(false);
     setTimer(startAnimation('slider', arrayCount));
 }
 
 function pause() {
-    turnOffTimer();
+    turnOffTimer(false);
 }
 
 function sliderChange() {

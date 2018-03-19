@@ -5,10 +5,13 @@ function setTimer(newTimer) {
     timer = newTimer;
 }
 
-function turnOffTimer() {
+function turnOffTimer(resetIndex) {
     if (timer != null) {
         clearInterval(timer);
         timer = null;
+    }
+    if (resetIndex) {
+        arrayIndex = 0;
     }
 }
 
@@ -62,8 +65,7 @@ function drawArray(array, canvasId) {
         if (arrayIndex < array.length - 1) {
             arrayIndex++;
         } else {
-            arrayIndex = 0;
-            turnOffTimer();
+            turnOffTimer(true);
         }
     }
 }
