@@ -28,6 +28,7 @@ function partition(items, left, right) {
         }
         if (i <= j) {
             swap(items, i, j);
+            addLoop(items, pivot, i, j);
             i++;
             j--;
         }

@@ -1,5 +1,5 @@
-var randomArraySizeRange = [10, 40] // [min, max]
-var randomArrayIntRange = [-99, 99] // [min, max]
+var randomArraySizeRange = [10, 100] // [min, max]
+var randomArrayIntRange = [-999, 999] // [min, max]
 
 function fillArray() {
     var inputString = document.getElementById('arrayInput').value;
@@ -9,9 +9,9 @@ function fillArray() {
         document.getElementById('array-data').style.display = 'block';
         var array = getConverArray(inputArray);
         printArray(array, 'sourceArray');
-        drawArray(JSON.parse(JSON.stringify(array)), 'canvas', getWidthWithoutCanvas());
-        setTimeout(printArray, 1000, quickSort(array), 'currentArray');
-        setTimeout(drawArray, 1000, JSON.parse(JSON.stringify(array)), 'canvas', getWidthWithoutCanvas());
+        printArray(quickSort(array), 'currentArray');
+
+        setTimer(startAnimation(50));
     }
 }
 

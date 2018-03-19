@@ -1,3 +1,10 @@
+var arrayIndex = 0;
+var timer;
+
+function setTimer(newTimer) {
+    timer = newTimer;
+}
+
 function drawArray(array, canvasId, realWidth) {
     var canvas = document.getElementById(canvasId);
     if (canvas.getContext) {
@@ -8,19 +15,19 @@ function drawArray(array, canvasId, realWidth) {
         var height = 200;
         ctx.canvas.height = height; 
 
-        var min = Math.min.apply(null, array);
+        var min = Math.min.apply(null, array[arrayIndex][0]);
         if (min < 0) {
-            for (var i = 0; i < array.length; i++) {
-                array[i] += Math.abs(min) + 1;
+            for (var i = 0; i < array[arrayIndex][0].length; i++) {
+                array[arrayIndex][0][i] += Math.abs(min) + 1;
             }
-            min = Math.min.apply(null, array);
+            min = Math.min.apply(null, array[arrayIndex][0]);
         } else if (min == 0) {
-            for (var i = 0; i < array.length; i++) {
-                array[i]++;
+            for (var i = 0; i < array[arrayIndex][0].length; i++) {
+                array[arrayIndex][0][i]++;
             }
         }
 
-        var widthPerColumn = width / array.length;
+        var widthPerColumn = width / array[arrayIndex][0].length;
         var columnWidth = Math.round(widthPerColumn / 1.5);
         if (columnWidth < 1) {
             columnWidth = 1;
@@ -31,11 +38,11 @@ function drawArray(array, canvasId, realWidth) {
             spacingWidth = 0;
         }
 
-        ctx.canvas.width = columnWidth * array.length + spacingWidth * 2 * array.length + 1;
+        ctx.canvas.width = columnWidth * array[arrayIndex][0].length + spacingWidth * 2 * array[arrayIndex][0].length + 1;
 
-        var max = Math.max.apply(null, array);
-        for (var i = 0, x = spacingWidth; i < array.length; i++, x += columnWidth + spacingWidth * 2) {
-            var columnHeightPercents = array[i] * 100 / max;
+        var max = Math.max.apply(null, array[arrayIndex][0]);
+        for (var i = 0, x = spacingWidth; i < array[arrayIndex][0].length; i++, x += columnWidth + spacingWidth * 2) {
+            var columnHeightPercents = array[arrayIndex][0][i] * 100 / max;
             var columnHeightPixels = Math.round(columnHeightPercents * height / 100);
             if (columnHeightPixels < 1) {
                 columnHeightPixels = 1;
@@ -43,6 +50,14 @@ function drawArray(array, canvasId, realWidth) {
 
             //drawDefaultColumn(ctx, x, height - columnHeightPixels, columnWidth, columnHeightPixels);
             drawSingleColoredColumn(ctx, x, height - columnHeightPixels, columnWidth, columnHeightPixels, '#262626');
+        }
+        
+        if (arrayIndex < array.length - 1) {
+            arrayIndex++;
+        } else {
+            arrayIndex = 0;
+            clearInterval(timer);
+            clearHistory();
         }
     }
 }

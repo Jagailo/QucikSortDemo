@@ -1,3 +1,6 @@
+var sortHistory = [];
+var timer;
+
 function randomInteger(min, max) {
     var rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
@@ -32,4 +35,17 @@ function getWidthWithoutCanvas() {
     currentArray.style.display = 'block';
 
     return width;
+}
+
+function addLoop(array, pivot, first, second) {
+    sortHistory.push([JSON.parse(JSON.stringify(array)), pivot, first, second]);
+}
+
+function startAnimation(ms) {
+    var wwc = getWidthWithoutCanvas();    
+    return setInterval(drawArray, ms, sortHistory, 'canvas', wwc);
+}
+
+function clearHistory() {
+    sortHistory = [];
 }
