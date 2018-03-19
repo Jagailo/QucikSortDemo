@@ -20,31 +20,35 @@ function printArray(array, TagID) {
     document.getElementById(TagID).innerHTML = str;
 }
 
-function getWidthWithoutCanvas() {
-    var canvas = document.getElementById('canvas');
-    var sourceArray = document.getElementById('sourceArray');
-    var currentArray = document.getElementById('currentArray');
-
-    canvas.style.display = 'none';
-    sourceArray.style.display = 'none';
-    currentArray.style.display = 'none';
-    var width = document.getElementById('content').offsetWidth;
-    canvas.style.display = 'block';
-    sourceArray.style.display = 'block';
-    currentArray.style.display = 'block';
-
-    return width;
-}
-
 function addLoop(array) {
     sortHistory.push(JSON.parse(JSON.stringify(array)));
 }
 
-function startAnimation(ms) {
-    var wwc = getWidthWithoutCanvas();
-    return setInterval(drawArray, ms, JSON.parse(JSON.stringify(sortHistory)), 'canvas', wwc);
+function startAnimation(sliderId, count) {
+    var slider = document.getElementById(sliderId);
+    var ms = 1;
+
+    if (slider.value != 0) {
+        ms = slider.value;
+    } else {
+        if (count > 0 && count < 50) {
+            ms = 150;
+        } else if (count >= 50 && count < 200) {
+            ms = 100;
+        } else if (count >= 200 && count < 600) {
+            ms = 65;
+        } else if (count >= 600 && count < 1000) {
+            ms = 50;
+        } else if (count >= 1000 && count < 3000) {
+            ms = 20;
+        } else if (count >= 3000) {
+            ms = 1;
+        }
+    }
+
+    return setInterval(drawArray, ms, JSON.parse(JSON.stringify(sortHistory)), 'canvas');
 }
 
 function clearHistory() {
-    sortHistory.length = 0
+    sortHistory = [];
 }

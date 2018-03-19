@@ -1,5 +1,6 @@
-var randomArraySizeRange = [10, 100] // [min, max]
+var randomArraySizeRange = [10, 500] // [min, max]
 var randomArrayIntRange = [-999, 999] // [min, max]
+var arrayCount = 0;
 
 function fillArray() {
     var inputString = document.getElementById('arrayInput').value;
@@ -8,14 +9,13 @@ function fillArray() {
     if (inputArray != null) {
         document.getElementById('array-data').style.display = 'block';
         turnOffTimer();
-        clearHistory();
-        
         var array = getConverArray(inputArray);
-        printArray(array, 'sourceArray');        
-        
+        arrayCount = array.length;
+        clearHistory();
+        printArray(array, 'sourceArray');
         printArray(quickSort(array), 'currentArray');
 
-        setTimer(startAnimation(50));
+        setTimer(startAnimation('slider', arrayCount));
     }
 }
 
@@ -33,9 +33,30 @@ function randomFill() {
 
 function play() {
     turnOffTimer();
-    setTimer(startAnimation(50));
+    setTimer(startAnimation('slider', arrayCount));
 }
 
 function pause() {
     turnOffTimer();
+}
+
+function sliderChange() {
+    var slider = document.getElementById('slider');
+    var input = document.getElementById('sliderInput');
+
+    if (slider.value != 0) {
+        input.value = slider.value;
+    } else {
+        input.value = 'auto';
+    }
+}
+
+function sliderInputChange() {
+    var input = document.getElementById('sliderInput');    
+    if (+input.value != NaN && input.value != '' && input.value >= 0 && input.value <= 2000) {
+        document.getElementById('slider').value = input.value;
+        if (input.value == 0) {
+            input.value = 'auto';
+        }
+    }
 }

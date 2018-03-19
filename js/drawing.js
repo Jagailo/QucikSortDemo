@@ -12,12 +12,12 @@ function turnOffTimer() {
     }
 }
 
-function drawArray(array, canvasId, realWidth) {
+function drawArray(array, canvasId) {
     var canvas = document.getElementById(canvasId);
     if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
 
-        var width = realWidth - 120;
+        var width = canvas.offsetWidth;
         ctx.canvas.width = width;
         var height = 300;
         ctx.canvas.height = height; 
@@ -70,13 +70,13 @@ function drawArray(array, canvasId, realWidth) {
 
 function drawDefaultColumn(ctx, x, y, width, height) {
     if (height <= width) {
-        ctx.fillStyle='#000000';
+        ctx.fillStyle='#262626';
         ctx.fillRect(x, y, width, height);
     } else {
-        ctx.fillStyle='#C8C8C8';
+        ctx.fillStyle='#DBDBDB';
         ctx.fillRect(x, y + width, width, height - width);
 
-        ctx.fillStyle='#000000';
+        ctx.fillStyle='#262626';
         ctx.fillRect(x, y, width, width);
     }
 }
