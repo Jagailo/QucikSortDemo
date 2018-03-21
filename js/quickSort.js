@@ -16,7 +16,8 @@ function quickSort(items, left, right) {
 }
 
 function partition(items, left, right) {
-    var pivot = items[Math.floor((right + left) / 2)];
+    var pivotIndex = Math.floor((right + left) / 2);
+    var pivot = items[pivotIndex];
     var i = left, j = right;
 
     while (i <= j) {
@@ -28,7 +29,7 @@ function partition(items, left, right) {
         }
         if (i <= j) {
             swap(items, i, j);
-            addLoop(items);
+            addLoop(items, i, j, left, right, pivotIndex);
             i++;
             j--;
         }

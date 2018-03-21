@@ -20,8 +20,8 @@ function printArray(array, TagID) {
     document.getElementById(TagID).innerHTML = str;
 }
 
-function addLoop(array) {
-    sortHistory.push(JSON.parse(JSON.stringify(array)));
+function addLoop(array, first, second, left, right, pivot) {
+    sortHistory.push([JSON.parse(JSON.stringify(array)), first, second, left, right, pivot]);
 }
 
 function startAnimation(sliderId, count) {
@@ -46,7 +46,12 @@ function startAnimation(sliderId, count) {
         }
     }
 
-    return setInterval(drawArray, ms, JSON.parse(JSON.stringify(sortHistory)), 'canvas');
+    return setInterval(drawArray, ms, JSON.parse(JSON.stringify(sortHistory)), 'canvas', false);
+}
+
+function drawFinalLoop() {
+    var array = [[sortHistory[sortHistory.length - 1][0], 0, 0, 0, 0, 0]];
+    drawArray(JSON.parse(JSON.stringify(array)), 'canvas', true);
 }
 
 function clearHistory() {

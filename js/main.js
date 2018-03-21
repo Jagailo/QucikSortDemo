@@ -1,5 +1,5 @@
-var randomArraySizeRange = [10, 500] // [min, max]
-var randomArrayIntRange = [-999, 999] // [min, max]
+var randomArraySizeRange = [6, 90] // [min, max]
+var randomArrayIntRange = [-99, 99] // [min, max]
 var arrayCount = 0;
 
 function fillArray() {
