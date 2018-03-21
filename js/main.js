@@ -40,6 +40,11 @@ function pause() {
     turnOffTimer(false);
 }
 
+function stop() {
+    turnOffTimer(true);
+    drawFinalLoop();
+}
+
 function sliderChange() {
     var slider = document.getElementById('slider');
     var input = document.getElementById('sliderInput');

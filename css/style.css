@@ -107,7 +107,11 @@ input[type="button"]:hover {
 }
 
 .canvas-control-panel .btn:nth-child(2) {
-    margin: 0 8px 0 5px;
+    margin: 0 5px;
+}
+
+.canvas-control-panel .btn:nth-child(3) {
+    margin-right: 8px;
 }
 
 .btn {
